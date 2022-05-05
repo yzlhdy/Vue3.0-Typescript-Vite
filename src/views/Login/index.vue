@@ -1,4 +1,4 @@
-<template >
+<template>
   <div>Login</div>
 </template>
 <script lang="ts">
@@ -11,5 +11,3 @@ export default defineComponent({
   },
 });
 </script>
-<style lang="" scoped>
-</style>

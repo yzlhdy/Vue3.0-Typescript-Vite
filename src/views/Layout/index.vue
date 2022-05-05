@@ -8,14 +8,15 @@
         <router-view></router-view>
       </div>
     </div>
-    <div class="layout-footer">
+
+    <!-- <div class="layout-footer">
       <NavBar />
-    </div>
+    </div>-->
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import NavBar from "../../components/NavBar/index.vue";
+import NavBar from "@/components/NavBar/index.vue";
 
 export default defineComponent({
   name: "Layout",

@@ -1,6 +1,6 @@
 <template >
-  <header-bar title="Home"> 456 </header-bar>
-
+  <header-bar title="Home" class="font-sans">456</header-bar>
+  <div class="font-poppins">123123</div>
   <transition-group
     tag="ul"
     appear
@@ -8,28 +8,22 @@
     @enter="enter"
     @before-enter="beforeEnter"
   >
-    <li
-      v-for="(item, index) in productData"
-      :data-index="index"
-      :key="item.id"
-      class="shadow-xl bg-white my-2 rounded-md p-2"
-    >
+    <li v-for="(item, index) in productData" :data-index="index" :key="item.id" class="card">
       <div class="h-40">
-        <img :src="item.image" alt="" class="object-cover w-full h-full" />
+        <img :src="item.image" class="object-cover w-full h-full" />
       </div>
       <p class="truncate py-2 box">{{ item.title }}</p>
     </li>
   </transition-group>
-  <navbar />
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import Navbar from "../components/NavBar/index.vue";
+
 import HeaderBar from "@/components/HeaderBar/index.vue";
 import gsap from "gsap";
 
 export default defineComponent({
-  components: { Navbar, HeaderBar },
+  components: { HeaderBar },
   name: "Home",
   setup: () => {
     const productData: any = ref([]);
@@ -48,6 +42,8 @@ export default defineComponent({
       el.style.opacity = "0";
       el.style.transform = "translateY(100px)";
     };
+
+
     return {
       productData,
       enter,

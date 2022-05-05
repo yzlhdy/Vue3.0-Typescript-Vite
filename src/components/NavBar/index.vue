@@ -26,9 +26,7 @@
               'text-xs',
               index === currentIndex ? 'text-blue-500' : 'text-gray-500',
             ]"
-          >
-            {{ item.name }}
-          </p>
+          >{{ item.name }}</p>
         </div>
       </template>
     </div>
@@ -36,11 +34,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, onMounted, ref, getCurrentInstance } from "vue";
 import { useRouter } from "vue-router";
 interface NavBar {
   icon: string;
   name: string;
+  router: string;
 }
 export default defineComponent({
   name: "NavBar",
@@ -51,22 +50,23 @@ export default defineComponent({
       {
         icon: "la-home",
         name: "Home",
+        router: '/home'
       },
       {
         icon: "la-school",
-        name: "About",
+        name: "About", router: '/about'
       },
       {
         icon: "la-heart",
-        name: "Content",
+        name: "Gsap", router: '/gsap'
       },
       {
         icon: "la-comment-dots",
-        name: "Home",
+        name: "Mine", router: '/mine'
       },
       {
         icon: "la-address-card",
-        name: "Home",
+        name: "Home", router: '/home'
       },
     ]);
     const handleNav = (item: NavBar, index: number): void => {
@@ -75,6 +75,11 @@ export default defineComponent({
         name: item.name,
       });
     };
+    // 解决高亮问题
+    onMounted(() => {
+      const index = navList.value.findIndex((item) => item.router === router.options?.history.location);
+      currentIndex.value = index;
+    });
     return {
       navList,
       handleNav,

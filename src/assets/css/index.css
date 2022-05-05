@@ -1,3 +1,5 @@
+@import "./components.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,200;1,300&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,7 +8,7 @@
 * {
    margin: 0;
    padding: 0;
-   font-family: 'Montserrat', Sans-Serif;
+   font-family: 'Poppins', Sans-Serif;
    font-size: 16px;
    -ms-overflow-style: none;
    scrollbar-width: none;
@@ -19,17 +21,13 @@
 body,html,.app {
 	background: #EEEEEE;
    height: 100%;
+  
 }
 
 .app {
    @apply bg-white md:w-8/12 mx-auto lg:w-5/12 xl:w-4/12;
+   @apply pb-11;
 }
 
-/* vant */
-:root {
- --van-button-success-background-color: #C107B5FF;
- --van-button-danger-color: #C107B5FF;
- --van-button-success-border-color: #C107B5FF;
- --van-button-primary-background-color: #C107B5FF;
-}
+
 

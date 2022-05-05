@@ -18,6 +18,16 @@ const routes: Array<RouteRecordRaw> = [
 				path: '/about',
 				name: 'About',
 				component: () => import('../views/About/index.vue'),
+			},
+			{
+				path: '/gsap',
+				name: 'Gsap',
+				component: () => import('../views/Gsap/index.vue')
+			},
+			{
+				path: '/mine',
+				name: 'Mine',
+				component: () => import('../views/Mine/index.vue')
 			}
 		]
 	},
